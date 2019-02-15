@@ -7,16 +7,16 @@ resources:
 
 
 jobs:
-#- template: build.yml  
-#  parameters:
-#    name: macOS
-#    artifactFileName: '$(Build.ArtifactStagingDirectory)/SpecFlow-macOS.zip'
-#    pool:
-#      name: 'Hosted macOS'
-
 - template: build.yml  
-  parameters:
-    name: Windows
-    artifactFileName: '$(Build.ArtifactStagingDirectory)/Windows.zip'
-    pool:
-      name: 'Hosted VS2017'
+ parameters:
+   name: macOS
+   artifactFileName: '$(Build.ArtifactStagingDirectory)/macOS.zip'
+   pool:
+     name: 'Hosted macOS'
+
+# - template: build.yml  
+#   parameters:
+#     name: Windows
+#     artifactFileName: '$(Build.ArtifactStagingDirectory)/Windows.zip'
+#     pool:
+#       name: 'Hosted VS2017'
