@@ -2,6 +2,8 @@ param (
  [string]$Configuration = "Debug"
 )
 
+
+
 $homeDirectory = $Env:HOME
 
 $nugetPackageCacheDirectory = Join-Path $homeDirectory ".nuget" "packages" "MSBuild.AdditionalTasks"
