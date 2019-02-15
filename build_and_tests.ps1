@@ -1,3 +1,6 @@
+param (
+ [string]$Configuration = "Debug"
+)
 
 $homeDirectory = $Env:HOME
 
@@ -10,6 +13,6 @@ Get-ChildItem -Path $nugetPackageCacheDirectory -Recurse -Hidden | Remove-Item -
 Remove-Item -Path $nugetPackageCacheDirectory -Force -Recurse
 
 
-& dotnet build ./src/MSBuild.AdditionalTasks.sln /binaryLogger:msbuild.binlog /nodeReuse:false
+& dotnet build ./src/MSBuild.AdditionalTasks.sln /binaryLogger:msbuild.binlog /nodeReuse:false -c $Configuration
 
-& dotnet build ./tests/Tests.sln /binaryLogger:msbuild.tests.binlog /nodeReuse:false
+& dotnet build ./tests/Tests.sln /binaryLogger:msbuild.tests.binlog /nodeReuse:false -c $Configuration

@@ -27,7 +27,7 @@
     <NoPackageAnalysis>true</NoPackageAnalysis>
     <BuildOutputTargetFolder>tasks</BuildOutputTargetFolder>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageOutputPath>$(SolutionDir)/../drop</PackageOutputPath>
+    <PackageOutputPath>$(SolutionDir)/../drop/$(Configuration)</PackageOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
