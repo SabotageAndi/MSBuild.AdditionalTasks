@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RestoreAdditionalProjectSources>../../drop</RestoreAdditionalProjectSources>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MSBuild.AdditionalTasks" Version="*" />>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <BuildDependsOn>
+      ReplaceText;
+      $(BuildDependsOn)
+    </BuildDependsOn>
+  </PropertyGroup>
+
+  <Target Name="ReplaceText" >
+    <ReplaceTextInFileTask 
+        InputFile="source.file"
+        OutputFile="destination.file"
+        TextToReplace="%TEXT_THAT_SHOULD_BE_REPLACED%"
+        TextToReplaceWith="REPLACED_TEXT"/>
+  </Target>
+
+</Project>

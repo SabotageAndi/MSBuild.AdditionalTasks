@@ -1,0 +1,7 @@
+<Project>
+
+    <Import Project="MSBuild.AdditionalTasks.props" Condition="'$(_PropsImported)'==''"/>
+
+    <Import Project="./**/*.targets"/>
+
+</Project>

@@ -1,0 +1,16 @@
+<Project>
+
+    <PropertyGroup>
+      <_PropsImported Condition=" '$(_PropsImported)' =='' ">true</_PropsImported>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <__TaskFolder Condition=" '$(MSBuildRuntimeType)' == 'Core' And '$(__TaskFolder)' == ''">netcoreapp2.0</__TaskFolder>
+        <__TaskFolder Condition=" '$(MSBuildRuntimeType)' != 'Core' And '$(__TaskFolder)' == ''">net471</__TaskFolder>
+        <__TaskAssembly Condition=" '$(__TaskAssembly)' == '' ">..\tasks\$(__TaskFolder)\MSBuild.AdditionalTasks.dll</__TaskAssembly>
+    </PropertyGroup>
+
+  <Import Project="MSBuild.AdditionalTasks.tasks"/>
+
+  <Import Project="./**/*.props"/>
+</Project>

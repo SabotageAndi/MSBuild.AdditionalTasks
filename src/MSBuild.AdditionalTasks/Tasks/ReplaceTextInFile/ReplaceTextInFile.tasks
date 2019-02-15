@@ -1,0 +1,3 @@
+<Project>
+    <UsingTask TaskName="MSBuild.AdditionalTasks.ReplaceTextInFile" AssemblyFile="$(__TaskAssembly)"/>
+</Project>

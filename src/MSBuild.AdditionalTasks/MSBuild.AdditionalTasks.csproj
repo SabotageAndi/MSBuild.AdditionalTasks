@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="$(SolutionDir)/build/macos.props"/>
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net471</TargetFrameworks>
+
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+    <BuildOutputTargetFolder>tasks</BuildOutputTargetFolder>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageOutputPath>$(SolutionDir)/../drop</PackageOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="build/*.*" PackagePath="build\" />
+    <Content Include="Tasks/**/*.props" PackagePath="build\" />
+    <Content Include="Tasks/**/*.tasks" PackagePath="build\" />
+    <Content Include="Tasks/**/*.targets" PackagePath="build\" />
+    <Content Include="buildMultiTargeting\*.props" PackagePath="buildMultiTargeting\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Framework" Version="15.8.166" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="15.8.166" />
+     <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>
