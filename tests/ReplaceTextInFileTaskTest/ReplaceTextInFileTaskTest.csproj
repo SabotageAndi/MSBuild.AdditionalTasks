@@ -6,22 +6,30 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MSBuild.AdditionalTasks" Version="*" />>
+    <PackageReference Include="MSBuild.AdditionalTasks" Version="*" />
   </ItemGroup>
 
   <PropertyGroup>
-    <BuildDependsOn>
-      ReplaceText;
-      $(BuildDependsOn)
-    </BuildDependsOn>
+    <ExpectedValue>Begin Text;REPLACED_TEXT;End Text</ExpectedValue>
   </PropertyGroup>
 
-  <Target Name="ReplaceText" >
+
+  <Target Name="ReplaceText" BeforeTargets="Build">
     <ReplaceTextInFileTask 
         InputFile="source.file"
         OutputFile="destination.file"
         TextToReplace="%TEXT_THAT_SHOULD_BE_REPLACED%"
         TextToReplaceWith="REPLACED_TEXT"/>
+  </Target>
+
+  <Target Name="AssertText" AfterTargets="ReplaceText">
+      <Error Text="File not found" Condition="!Exists('destination.file')" />
+      <ReadLinesFromFile File="destination.file" >
+        <Output  
+                TaskParameter="Lines"  
+                ItemName="ItemsFromFile"/> 
+      </ReadLinesFromFile>
+      <Error Text="Actual '@(ItemsFromFile)' is not '$(ExpectedValue)' " Condition=" '@(ItemsFromFile)' != '$(ExpectedValue)' " />
   </Target>
 
 </Project>

@@ -12,5 +12,4 @@
 
   <Import Project="MSBuild.AdditionalTasks.tasks"/>
 
-  <Import Project="./**/*.props"/>
 </Project>
