@@ -4,7 +4,7 @@
     <LangVersion>latest</LangVersion>
    
     <_Year>$([System.DateTime]::get_Now().get_Year())</_Year>
-    <_Copyright>Copyright © 2019-$(TechTalk_Year) Andreas Willich</_Copyright>
+    <_Copyright>Copyright © 2019-$(_Year) Andreas Willich</_Copyright>
   </PropertyGroup>
 
   <Import Project="$(SolutionDir)/build/macos.props"/>
@@ -17,8 +17,9 @@
     <Authors>Andreas Willich</Authors>
     <Company></Company>
     <Product />    
-    <Description>SpecFlow aims at bridging the communication gap between domain experts and developers by binding business readable behavior specifications to the underlying implementation. Our mission is to provide a pragmatic and frictionless approach to Acceptance Test Driven Development and Behavior Driven Development for .NET projects today."</Description>
+    <Description></Description>
     <Copyright>$(_Copyright)</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -31,6 +32,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+     <None Include="$(SolutionDir)/../LICENSE" Pack="true" PackagePath=""/>
     <Content Include="build/*.*" PackagePath="build\" />
     <Content Include="Tasks/**/*.props" PackagePath="build\" />
     <Content Include="Tasks/**/*.tasks" PackagePath="build\" />
