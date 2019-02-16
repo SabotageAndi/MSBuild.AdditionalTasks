@@ -44,6 +44,12 @@ jobs:
 
   #     archiveFile: ${{ parameters.artifactFileName }} 
 
+  - task: PowerShell@2
+    inputs:
+      script: 'dir'
+      workingDirectory: $(Build.SourcesDirectory)
+    displayName: 'Output of Filesystem'
+    
 
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: NuGet Packages'
