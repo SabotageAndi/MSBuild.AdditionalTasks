@@ -48,7 +48,7 @@ jobs:
     inputs:
       targetType: 'inline'
       script: 'dir'
-      workingDirectory: $(Build.SourcesDirectory)
+      workingDirectory: $(Build.SourcesDirectory)/drop
     displayName: 'Output of Filesystem'
     
 
