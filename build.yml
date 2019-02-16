@@ -55,6 +55,6 @@ jobs:
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: NuGet Packages'
     inputs:
-      PathtoPublish: $(Build.SourcesDirectory)/drop/Release/*.nupkg
+      PathtoPublish: $(Build.SourcesDirectory)/drop/Release/
       artifactType: container
       ArtifactName: ${{parameters.artifactName}}
