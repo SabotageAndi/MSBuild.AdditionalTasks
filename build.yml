@@ -44,12 +44,12 @@ jobs:
 
   #     archiveFile: ${{ parameters.artifactFileName }} 
 
-  - task: PowerShell@2
-    inputs:
-      targetType: 'inline'
-      script: 'dir'
-      workingDirectory: $(Build.SourcesDirectory)/drop/Release
-    displayName: 'Output of Filesystem'
+  # - task: PowerShell@2
+  #   inputs:
+  #     targetType: 'inline'
+  #     script: 'dir'
+  #     workingDirectory: $(Build.SourcesDirectory)/drop/Release
+  #   displayName: 'Output of Filesystem'
     
 
   - task: PublishBuildArtifacts@1
