@@ -8,6 +8,8 @@ if (!$homeDirectory) {
     $homeDirectory = $Env:UserProfile
 }
 
+Write-Host $homeDirectory
+
 $nugetPackageCacheDirectory = Join-Path $homeDirectory ".nuget" "packages" "MSBuild.AdditionalTasks"
 
 Write-Host $nugetPackageCacheDirectory
