@@ -10,13 +10,13 @@ jobs:
 - template: build.yml  
   parameters:
    name: macOS
-   artifactFileName: '$(Build.ArtifactStagingDirectory)/macOS.zip'
+   artifactName: NuGetPackages-MacOS
    pool:
      name: 'Hosted macOS'
 
 - template: build.yml  
   parameters:
     name: Windows
-    artifactFileName: '$(Build.ArtifactStagingDirectory)/Windows.zip'
+    artifactName: NuGetPackages-Windows
     pool:
       name: 'Hosted VS2017'

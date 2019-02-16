@@ -3,7 +3,7 @@ parameters:
   pool: ''
   nugetVersion: 4.6.2
   sdkVersion: 2.2.102
-  artifactFileName: ''
+  artifactName: ''
 
 jobs:
 - job: ${{ parameters.name }}
@@ -45,9 +45,9 @@ jobs:
   #     archiveFile: ${{ parameters.artifactFileName }} 
 
 
-  # - task: PublishBuildArtifacts@1
-  #   displayName: 'Publish Artifact: SpecFlow.CI-BuildResult'
-  #   inputs:
-  #     PathtoPublish: ${{ parameters.artifactFileName }} 
-  #     artifactType: container
-  #     ArtifactName: 'SpecFlow.CI-BuildResult'
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: NuGet Packages'
+    inputs:
+      PathtoPublish: $(Build.SourcesDirectory)/drop/*.nupkg
+      artifactType: container
+      ArtifactName: ${{parameters.artifactName}}
