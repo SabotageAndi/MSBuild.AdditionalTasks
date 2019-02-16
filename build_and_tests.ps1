@@ -12,7 +12,7 @@ $nugetPackageCacheDirectory = Join-Path $homeDirectory ".nuget" "packages" "MSBu
 
 Write-Host $nugetPackageCacheDirectory
 
-if (!(Test-Path $nugetPackageCacheDirectory)) {
+if ((Test-Path $nugetPackageCacheDirectory)) {
     Get-ChildItem -Path $nugetPackageCacheDirectory -Recurse -Hidden | Remove-Item -Force
     Remove-Item -Path $nugetPackageCacheDirectory -Force -Recurse
 }
