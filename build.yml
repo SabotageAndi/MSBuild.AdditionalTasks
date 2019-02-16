@@ -46,6 +46,7 @@ jobs:
 
   - task: PowerShell@2
     inputs:
+      targetType: 'inline'
       script: 'dir'
       workingDirectory: $(Build.SourcesDirectory)
     displayName: 'Output of Filesystem'
