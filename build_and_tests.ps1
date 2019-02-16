@@ -10,7 +10,9 @@ if (!$homeDirectory) {
 
 Write-Host $homeDirectory
 
-$nugetPackageCacheDirectory = Join-Path $homeDirectory ".nuget" "packages" "MSBuild.AdditionalTasks"
+$nugetPackageCacheDirectory = Join-Path -Path $homeDirectory -ChildPath ".nuget" 
+$nugetPackageCacheDirectory = Join-Path -Path $nugetPackageCacheDirectory -ChildPath "packages"
+$nugetPackageCacheDirectory = Join-Path -Path $nugetPackageCacheDirectory -ChildPath "MSBuild.AdditionalTasks"
 
 Write-Host $nugetPackageCacheDirectory
 
