@@ -7,10 +7,10 @@
     <_Copyright>Copyright © 2019-$(_Year) Andreas Willich</_Copyright>
   </PropertyGroup>
 
-  <Import Project="$(SolutionDir)/build/macos.props"/>
+  <Import Project="$(SolutionDir)/build/macos.props" />
 
   <ItemGroup>
-    <PackageReference Include="Nerdbank.GitVersioning" Version="2.1.65" PrivateAssets="all"/>
+    <PackageReference Include="Nerdbank.GitVersioning" Version="2.1.65" PrivateAssets="all" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -32,7 +32,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-     <None Include="$(SolutionDir)/../LICENSE" Pack="true" PackagePath=""/>
+     <None Include="$(SolutionDir)/../LICENSE" Pack="true" PackagePath="" />
     <Content Include="build/*.*" PackagePath="build\" />
     <Content Include="Tasks/**/*.props" PackagePath="build\" />
     <Content Include="Tasks/**/*.tasks" PackagePath="build\" />
