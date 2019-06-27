@@ -13,7 +13,7 @@
     <ExpectedValue>Hello;PreviousContent</ExpectedValue>
   </PropertyGroup>
 
-<!--
+
   <Target Name="ReplaceText" BeforeTargets="Build">
     <PrependTextInFileTask InputFile="source.file" OutputFile="destination.file" TextToPrepend="Hello" />
   </Target>
@@ -25,5 +25,5 @@
     </ReadLinesFromFile>
     <Error Text="Actual '@(ItemsFromFile)' does not start with '$(ExpectedValue)' " Condition=" '@(ItemsFromFile)' != '$(ExpectedValue)' " />
   </Target>
--->
+
 </Project>
