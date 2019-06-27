@@ -3,7 +3,7 @@ using System.IO;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
 
-namespace MSBuild.AdditionalTasks.Tasks
+namespace MSBuild.AdditionalTasks
 {
     public class PrependTextInFileTask : Task
     {
