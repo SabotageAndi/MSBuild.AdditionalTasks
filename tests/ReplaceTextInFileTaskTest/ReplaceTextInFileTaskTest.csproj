@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -15,19 +15,13 @@
 
 
   <Target Name="ReplaceText" BeforeTargets="Build">
-    <ReplaceTextInFileTask 
-        InputFile="source.file"
-        OutputFile="destination.file"
-        TextToReplace="%TEXT_THAT_SHOULD_BE_REPLACED%"
-        TextToReplaceWith="REPLACED_TEXT"/>
+    <ReplaceTextInFileTask InputFile="source.file" OutputFile="destination.file" TextToReplace="%TEXT_THAT_SHOULD_BE_REPLACED%" TextToReplaceWith="REPLACED_TEXT" />
   </Target>
 
   <Target Name="AssertText" AfterTargets="ReplaceText">
       <Error Text="File not found" Condition="!Exists('destination.file')" />
-      <ReadLinesFromFile File="destination.file" >
-        <Output  
-                TaskParameter="Lines"  
-                ItemName="ItemsFromFile"/> 
+      <ReadLinesFromFile File="destination.file">
+        <Output TaskParameter="Lines" ItemName="ItemsFromFile" /> 
       </ReadLinesFromFile>
       <Error Text="Actual '@(ItemsFromFile)' is not '$(ExpectedValue)' " Condition=" '@(ItemsFromFile)' != '$(ExpectedValue)' " />
   </Target>
