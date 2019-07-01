@@ -23,7 +23,7 @@ namespace MSBuild.AdditionalTasks
                 string fileContent = File.ReadAllText(InputFile);
                 string outputFileDirectoryPath = Path.GetDirectoryName(OutputFile);
 
-                if (!Directory.Exists(outputFileDirectoryPath))
+                if (!string.IsNullOrEmpty(outputFileDirectoryPath) && !Directory.Exists(outputFileDirectoryPath))
                 {
                     Directory.CreateDirectory(outputFileDirectoryPath);
                 }
