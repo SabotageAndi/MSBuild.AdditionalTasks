@@ -21,6 +21,13 @@ namespace MSBuild.AdditionalTasks
             try
             {
                 string fileContent = File.ReadAllText(InputFile);
+                string outputFileDirectoryPath = Path.GetDirectoryName(OutputFile);
+
+                if (!Directory.Exists(outputFileDirectoryPath))
+                {
+                    Directory.CreateDirectory(outputFileDirectoryPath);
+                }
+
                 using (var outputStream = File.Open(OutputFile, FileMode.Create))
                 {
                     using (var streamWriter = new StreamWriter(outputStream))
